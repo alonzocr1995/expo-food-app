@@ -16,7 +16,6 @@ import * as firebase from "firebase";
 const ModalCart = ({ showModal, setShowModal }) => {
   const { products, deleteProduct, handleProductQuantity, deleteProducts } =
     useProduct();
-  const [isAdded, setIsAdded] = useState(false);
 
   const handleCreateOrder = async () => {
     try {
@@ -88,7 +87,6 @@ const ModalCart = ({ showModal, setShowModal }) => {
                 iconStyle={{ color: "grey" }}
                 totalHeight={30}
                 totalWidth={80}
-                // containerStyle={styles.numInputContainer}
               />
               <TouchableOpacity onPress={() => deleteProduct(prod.id)}>
                 <AntDesign name="delete" size={24} color="white" />
@@ -102,15 +100,10 @@ const ModalCart = ({ showModal, setShowModal }) => {
               position: "absolute",
               bottom: 10,
               right: 10,
-              // ...(!products.length && { backgroundColor: "grey" }),
             }}
             disabled={!products.length}
           >
-            <AntDesign
-              name="pluscircle"
-              size={24}
-              color={!products.length && "grey"}
-            />
+            <AntDesign name="pluscircle" size={24} color={"grey"} />
           </TouchableOpacity>
         </View>
       </View>
